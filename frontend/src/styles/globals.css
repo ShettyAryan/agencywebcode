@@ -90,3 +90,47 @@ img {
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out;
 }
+
+/* Slide up animation for testimonials */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Testimonials infinite scroll animation */
+@keyframes testimonialsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.testimonials-scroll {
+  display: flex;
+  gap: 1.5rem;
+  animation: testimonialsScroll 40s linear infinite;
+  will-change: transform;
+  width: fit-content;
+}
+
+.testimonials-scroll:hover,
+.testimonials-scroll.group:hover {
+  animation-play-state: paused;
+}
+
+/* Individual card hover effect */
+.testimonials-scroll > div:hover {
+  transform: scale(1.02);
+}
