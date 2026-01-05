@@ -13,7 +13,7 @@ export function Stats() {
                 Clients
               </p>
               <p className="font-['Roboto_Flex'] font-semibold text-[#1d4fd7] text-3xl md:text-5xl uppercase">
-                200+
+                4
               </p>
             </div>
 
@@ -22,7 +22,7 @@ export function Stats() {
                 PROJECTS
               </p>
               <p className="font-['Roboto_Flex'] font-semibold text-[#1d4fd7] text-3xl md:text-5xl uppercase">
-                280+
+                4
               </p>
             </div>
 

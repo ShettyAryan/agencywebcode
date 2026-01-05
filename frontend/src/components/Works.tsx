@@ -1,27 +1,46 @@
 import React from "react";
-import imgImage1 from "figma:asset/8410421760a1d164d08527cf8780ec84c55aa884.png";
-import imgImage2 from "figma:asset/9333dbfd96156981d7444169ea92aa972ca6be65.png";
 import svgPaths from "../imports/svg-nrjcgr4q04";
+import { Star, MapPin, Cookie, Stethoscope } from "lucide-react";
 
 export function Works() {
-  const projects = [
-    {
-      icon: svgPaths.p2fe78780,
-      title: "AIGenAgentic Solutions",
-      category: "Web Design and Development",
-      description:
-        "A full-lifecycle, bespoke, full-stack web application meticulously designed, engineered, and deployed to serve a prominent agency client based in Ireland. The system incorporates an advanced, high-availability booking and reservation engine as its core functionality, enhancing operational efficiency and providing a seamless digital experience for both the agency and its clientele.",
-      image: imgImage1,
-    },
-    {
-      icon: svgPaths.p2f781600,
-      title: "A-Aura Ecommerce",
-      category: "Web Design & Development",
-      description:
-        "A complete overhaul of a corporate website to enhance its brand identity and user experience.",
-      image: imgImage2,
-    },
-  ];
+const projects = [
+  {
+    title: "Milestones: Dr. Joshi's child clinic",
+    category: "Brand Design and Web Design & Development",
+    icon: <Stethoscope className="text-[#0033FF] w-5 h-5" />,
+    desc: "A complete end to end brand design and web design & development project for a child clinic with a complete booking system storing patient data and appointments in google sheets and calender.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1767447370/www.milestoneschildclinic.com__2_y9i4kx.png",
+    nav: "https://milestoneschildclinic.com/",
+  },
+  {
+    title: "AIGenAgentic Solutions",
+    category: "Web Design and Development",
+    icon: <Star className="text-[#0033FF] w-5 h-5" />,
+    desc: "A full-lifecycle, bespoke, full-stack web application meticulously designed, engineered, and deployed to serve a prominent agency client based in Ireland. The system incorporates an advanced, high-availability booking and reservation engine as its core functionality, enhancing operational efficiency and providing a seamless digital experience for both the agency and its clientele.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1767632166/web1_gjxejd.png",
+    nav: "https://aigenagentic.com/",
+  },
+  {
+    title: "Dessire",
+    category: "Web Design Consultation",
+    icon: <Cookie className="text-[#0033FF] w-5 h-5" />,
+    desc: "Provided expert strategic consultation focused on optimizing the client's public-facing website's UI & UX. The engagement delivered a comprehensive roadmap covering design methodologies and search engine optimization (SEO) best practices specifically targeted at maximizing organic traffic acquisition and significantly improving on-site client conversion rates.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1767632168/web3_zdneaa.png",
+    nav: "https://drive.google.com/file/d/1ZNUioQ5H_JW__2b8GAIbLv86RWkvZSpw/view?usp=sharing",
+  },
+  {
+    title: "ConstructXR",
+    category: "Web Design & Development and AI Integration",
+    icon: <MapPin className="text-[#0033FF] w-5 h-5" />,
+    desc: "Led the full-cycle design and development of an innovative digital platform anchored by an integrated intelligent conversational agent. The solution is a production-ready, web application where the AI Chatbot serves as a core functional component, enabling 24/7 automated interaction, personalized service delivery, and providing a scalable method for improving operational efficiency and user engagement.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1767632168/web2_icgjig.png",
+    nav: "https://www.constructxr.in/",
+  },
+];
 
   return (
     <section id="works" className="pb-8 md:pb-12 px-4 md:px-8">
@@ -52,24 +71,28 @@ export function Works() {
 
           {/* Projects */}
           <div className="flex flex-col gap-3 md:gap-4">
-            {projects.map((project, index) => (
+            {projects.map((project, index) => {
+              const handleNavClick = () => {
+                if (project.nav) {
+                  window.open(project.nav, '_blank', 'noopener,noreferrer');
+                }
+              };
+
+              return (
               <div
                 key={index}
-                className="bg-[#1a1a1a] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                onClick={handleNavClick}
+                className="bg-[#1a1a1a] rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.01] hover:border-2 hover:border-[#1b4bce] border-2 border-transparent cursor-pointer"
               >
                 <div className="grid md:grid-cols-[1fr,1fr] lg:grid-cols-[60%_40%] gap-0">
                   {/* Project Info */}
                   <div className="p-5 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-5 justify-between">
                     <div className="flex flex-col gap-4">
                       <div className="flex items-center gap-3">
-                        <div className="bg-[#1f1f1f] border border-[#333] rounded-lg p-2.5 flex-shrink-0">
-                          <svg
-                            className="w-5 h-5 md:w-6 md:h-6"
-                            fill="none"
-                            viewBox="0 0 34 34"
-                          >
-                            <path d={project.icon} fill="#1b4bce" />
-                          </svg>
+                        <div className="bg-[#1f1f1f] border border-[#333] rounded-lg p-2.5 shrink-0">
+                          <div className="w-5 h-5 md:w-6 md:h-6">
+                            {project.icon}
+                          </div>
                         </div>
                         <h3 className="font-['Roboto_Flex'] font-medium text-[#f0f4fd] text-base md:text-lg uppercase leading-tight">
                           {project.title}
@@ -87,11 +110,19 @@ export function Works() {
                       </div>
 
                       <p className="font-['Roboto_Flex'] text-[#b3b3b2] text-xs md:text-sm leading-relaxed">
-                        {project.description}
+                        {project.desc}
                       </p>
                     </div>
 
-                    <button className="flex items-center gap-2 hover:opacity-80 transition-opacity w-fit">
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (project.nav) {
+                          window.open(project.nav, '_blank', 'noopener,noreferrer');
+                        }
+                      }}
+                      className="flex items-center gap-2 hover:opacity-80 transition-opacity w-fit"
+                    >
                       <div className="bg-[#0f0f0f] border border-[#262626] rounded-full p-2.5">
                         <svg
                           className="w-3.5 h-3.5"
@@ -122,7 +153,8 @@ export function Works() {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
