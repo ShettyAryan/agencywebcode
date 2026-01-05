@@ -107,6 +107,263 @@ img {
   animation: slideUp 0.6s ease-out forwards;
 }
 
+/* Calendar dark theme styling */
+.calendar-dark {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #1b4bce;
+  --rdp-background-color: #0f0f0f;
+}
+
+.calendar-dark button {
+  color: #f0f4fd;
+}
+
+.calendar-dark .rdp-day {
+  color: #f0f4fd;
+}
+
+.calendar-dark .rdp-day_selected,
+.calendar-dark .rdp-day[aria-selected="true"] {
+  background-color: #1b4bce !important;
+  color: white !important;
+}
+
+.calendar-dark .rdp-day:hover:not(.rdp-day_disabled):not(.rdp-day_selected) {
+  background-color: #1f1f1f;
+  color: #f0f4fd;
+}
+
+.calendar-dark .rdp-caption_label {
+  color: #f0f4fd;
+  font-weight: 500;
+}
+
+.calendar-dark .rdp-head_cell {
+  color: #b3b3b2;
+}
+
+.calendar-dark .rdp-nav_button {
+  color: #f0f4fd;
+}
+
+.calendar-dark .rdp-nav_button:hover {
+  background-color: #1f1f1f;
+  color: #1b4bce;
+}
+
+.calendar-dark .rdp-day_disabled {
+  color: #666666;
+  opacity: 0.5;
+}
+
+.calendar-dark .rdp-day_outside {
+  color: #666666;
+}
+
+.calendar-dark .rdp-day_today {
+  background-color: #1f1f1f;
+  color: #1b4bce;
+  font-weight: 600;
+  border: 1px solid #1b4bce;
+}
+
+/* Enhanced calendar styling */
+.calendar-dark {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-dark .rdp {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.calendar-dark .rdp-months {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-dark .rdp-month {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-dark .rdp-caption {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-dark .rdp-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  table-layout: fixed;
+}
+
+.calendar-dark .rdp-head_row {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+.calendar-dark .rdp-row {
+  width: 100%;
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+
+.calendar-dark .rdp-cell {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .calendar-dark .rdp-cell {
+    width: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar-dark .rdp-cell {
+    width: 3.5rem;
+  }
+}
+
+.calendar-dark .rdp-day {
+  width: 100%;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .calendar-dark .rdp-day {
+    height: 3rem;
+    font-size: 0.875rem;
+    border-radius: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar-dark .rdp-day {
+    height: 3.5rem;
+    font-size: 1rem;
+  }
+}
+
+.calendar-dark .rdp-nav_button {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .calendar-dark .rdp-nav_button {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar-dark .rdp-nav_button {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.calendar-dark .rdp-nav_button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .calendar-dark .rdp-nav_button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar-dark .rdp-nav_button svg {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+.calendar-dark .rdp-head_cell {
+  width: 2.25rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .calendar-dark .rdp-head_cell {
+    width: 3rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calendar-dark .rdp-head_cell {
+    width: 3.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  .calendar-dark .rdp-caption {
+    padding: 0.25rem 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .calendar-dark .rdp-head_row {
+    margin-bottom: 0.75rem;
+    padding: 0.25rem 0;
+  }
+  
+  .calendar-dark .rdp-row {
+    margin-top: 0.5rem;
+  }
+}
+
 /* Testimonials infinite scroll animation */
 @keyframes testimonialsScroll {
   0% {

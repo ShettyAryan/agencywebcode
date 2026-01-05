@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -67,7 +69,10 @@ export function Navbar() {
           </a>
         </div>
 
-        <button className="hidden lg:block bg-[#1b4bce] px-4 py-2 rounded-xl text-[#fefcfb] font-['Roboto_Mono'] font-medium text-sm uppercase hover:bg-[#1640b8] transition-colors">
+        <button 
+          onClick={() => navigate('/contact')}
+          className="hidden lg:block bg-[#1b4bce] px-4 py-2 rounded-xl text-[#fefcfb] font-['Roboto_Mono'] font-medium text-sm uppercase hover:bg-[#1640b8] transition-colors"
+        >
           Contact Us
         </button>
 
@@ -111,7 +116,13 @@ export function Navbar() {
           >
             Projects
           </a>
-          <button className="bg-[#1b4bce] px-5 py-3 rounded-xl text-[#fefcfb] font-['Roboto_Mono'] font-medium text-sm uppercase">
+          <button 
+            onClick={() => {
+              navigate('/contact');
+              setIsOpen(false);
+            }}
+            className="bg-[#1b4bce] px-5 py-3 rounded-xl text-[#fefcfb] font-['Roboto_Mono'] font-medium text-sm uppercase"
+          >
             Contact Us
           </button>
         </div>
