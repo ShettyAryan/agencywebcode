@@ -3,27 +3,27 @@ import React from "react";
 export function Testimonials() {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart Inc.",
-      content: "ConstructDev transformed our digital presence completely. Their attention to detail and innovative solutions exceeded our expectations. The team delivered on time and within budget.",
+      name: "Saideepak Deshpande",
+      role: "CEO, AIGenAgentic Solutions",
+      content: "We are extremely satisfied with the work done by ConstructDev. They delivered a high-quality website that exceeded our expectations. The team is professional, responsive, and has a deep understanding of the latest web technologies. We highly recommend them to anyone looking for a web development partner.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
-      role: "Founder, DesignStudio",
-      content: "Working with ConstructDev was a game-changer. They understood our vision and brought it to life with cutting-edge technology. Our website traffic increased by 300% after launch.",
+      name: "Deepti Shetty",
+      role: "Founder, Dessire",
+      content: "ConstructDev delivered a stunning website that perfectly represents our brand. Highly recommended!",
       rating: 5,
     },
     {
-      name: "Emily Rodriguez",
-      role: "Marketing Director, GrowthCo",
-      content: "The team at ConstructDev is professional, responsive, and incredibly talented. They delivered a stunning website that perfectly represents our brand. Highly recommended!",
+      name: "Dr. Vinay Joshi",
+      role: "Fouder and Lead Physician, Milestones Child Clinic",
+      content: "The entire scheduling system and website are a game-changer. Patients can now book appointments easily, and the system is incredibly user-friendly. Great job!",
       rating: 5,
     },
     {
-      name: "David Thompson",
-      role: "CTO, InnovateLabs",
-      content: "ConstructDev's expertise in web development and AI integration helped us create a unique platform. Their technical knowledge and creative solutions are outstanding.",
+      name: "Rohit Kumar",
+      role: "Marketing, ConstructXR",
+      content: "The website is not only visually appealing but also highly functional. It has greatly improved our online presence and engagement.",
       rating: 5,
     },
   ];
