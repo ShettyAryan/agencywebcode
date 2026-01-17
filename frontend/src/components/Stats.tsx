@@ -10,19 +10,19 @@ export function Stats() {
             {/* Stats Cards */}
             <div className="bg-[#1a1a1a] rounded-xl p-4 md:p-6 text-center transition-all duration-300 hover:scale-105 hover:border-2 hover:border-[#1b4bce] border-2 border-transparent cursor-pointer">
               <p className="font-['Roboto_Mono'] font-medium text-[#b3b3b2] text-sm md:text-base mb-3 md:mb-4 uppercase">
-                Clients
+                Custom Builds
               </p>
               <p className="font-['Roboto_Flex'] font-semibold text-[#1d4fd7] text-3xl md:text-5xl uppercase">
-                4
+                100%
               </p>
             </div>
 
             <div className="bg-[#1a1a1a] rounded-xl p-4 md:p-6 text-center transition-all duration-300 hover:scale-105 hover:border-2 hover:border-[#1b4bce] border-2 border-transparent cursor-pointer">
               <p className="font-['Roboto_Mono'] font-medium text-[#b3b3b2] text-sm md:text-base mb-3 md:mb-4">
-                PROJECTS
+                Delivery Focus
               </p>
               <p className="font-['Roboto_Flex'] font-semibold text-[#1d4fd7] text-3xl md:text-5xl uppercase">
-                4
+                Quality
               </p>
             </div>
 
