@@ -1,6 +1,6 @@
 import React from "react";
 import svgPaths from "../imports/svg-nrjcgr4q04";
-import { Star, MapPin, Cookie, Stethoscope } from "lucide-react";
+import { Star, MapPin, Cookie, Stethoscope, BrainCircuit } from "lucide-react";
 
 export function Works() {
 const projects = [
@@ -12,6 +12,15 @@ const projects = [
     image:
       "https://res.cloudinary.com/dsvgadc5d/image/upload/v1767447370/www.milestoneschildclinic.com__2_y9i4kx.png",
     nav: "https://milestoneschildclinic.com/",
+  },
+  {
+    title: "Summuro AI",
+    category: "Saas Web Application",
+    icon: <BrainCircuit className="text-[#0033FF] w-5 h-5" />,
+    desc: "A SaaS web application that converts PDFs into short-form reels for easier understanding",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1770107029/Screenshot_2026-02-03_135239_rivftk.png",
+    nav: "https://summuro-ai.vercel.app/",
   },
   {
     title: "AIGenAgentic Solutions",
@@ -144,7 +153,7 @@ const projects = [
                   </div>
 
                   {/* Project Image */}
-                  <div className="h-48 md:h-auto min-h-[300px]">
+                  <div className="h-48 md:h-auto min-h-75">
                     <img
                       src={project.image}
                       alt={project.title}
