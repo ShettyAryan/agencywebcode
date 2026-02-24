@@ -6,20 +6,18 @@
    - Go to https://www.emailjs.com/
    - Sign up for a free account
    - Create a service (e.g., "Gmail")
-   - Create an email template with these variables:
-     - `{{to_name}}` - Client name
-     - `{{company_name}}` - Company name
-     - `{{goal}}` - Client goal
-     - `{{requirement}}` - Requirements
-     - `{{meeting_date}}` - Meeting date
-     - `{{reply_to}}` - Client email
 
-2. **Get EmailJS Credentials**:
-   - Service ID: Found in EmailJS dashboard
-   - Template ID: Found in your template settings
-   - Public Key: Found in Account > API Keys
+2. **Create one email template – client confirmation**
+   - **To:** `{{to_email}}` (so the confirmation goes to the client)
+   - Variables: `{{to_email}}`, `{{to_name}}`, `{{company_name}}`, `{{meeting_date}}`, `{{meeting_time}}`
+   - Example body: *"Hi {{to_name}}, your meeting with ConstructDev is confirmed for {{meeting_date}} at {{meeting_time}}. We'll be in touch soon."*
 
-3. **Create `.env` file in frontend directory**:
+3. **Get EmailJS Credentials**:
+   - Service ID: EmailJS dashboard
+   - Template ID: From your template's settings
+   - Public Key: Account > API Keys
+
+4. **Create `.env` file in frontend directory**:
 ```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
@@ -27,7 +25,7 @@ VITE_EMAILJS_PUBLIC_KEY=your_public_key
 VITE_API_URL=http://localhost:3001/api
 ```
 
-**Note**: Vite uses `VITE_` prefix for environment variables (not `REACT_APP_`)
+**Note**: Vite uses `VITE_` prefix for environment variables (not `REACT_APP_`).
 
 ## Backend Setup (Google Sheets & Calendar)
 
@@ -75,4 +73,3 @@ PORT=3001
 4. Check your email for confirmation
 5. Check Google Sheet for the entry
 6. Check Google Calendar for the event
-

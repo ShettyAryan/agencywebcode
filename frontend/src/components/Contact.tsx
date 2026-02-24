@@ -71,7 +71,7 @@ export function Contact() {
         datetime: `${format(selectedDate, "yyyy-MM-dd")} ${selectedTimeSlot}`,
       };
 
-      // Send email via EmailJS
+      // EmailJS: send confirmation to client only
       const emailjsServiceId = (import.meta as any).env?.VITE_EMAILJS_SERVICE_ID;
       const emailjsTemplateId = (import.meta as any).env?.VITE_EMAILJS_TEMPLATE_ID;
       const emailjsPublicKey = (import.meta as any).env?.VITE_EMAILJS_PUBLIC_KEY;
@@ -81,14 +81,11 @@ export function Contact() {
           emailjsServiceId,
           emailjsTemplateId,
           {
+            to_email: data.email,
             to_name: data.name,
             company_name: data.companyName,
-            goal: data.goal,
-            requirement: data.requirement,
             meeting_date: formData.dateFormatted,
             meeting_time: selectedTimeSlot,
-            phone_number: data.phone,
-            reply_to: data.email,
           },
           emailjsPublicKey
         );
