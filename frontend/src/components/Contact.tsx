@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { Calendar } from "./ui/calendar";
@@ -16,18 +16,41 @@ interface BookingFormData {
   phone: string;
 }
 
+const API_URL = (import.meta as any).env?.VITE_API_URL || "http://localhost:3001/api";
+
 export function Contact() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("");
+  const [availableSlots, setAvailableSlots] = useState<string[]>([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const { register, handleSubmit, formState: { errors }, reset } = useForm<BookingFormData>();
 
-  // Available time slots
-  const timeSlots = [
-    "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
-    "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM", "05:00 PM"
-  ];
+  // Fetch available time slots for the selected date (booked slots are not returned)
+  useEffect(() => {
+    if (!selectedDate) {
+      setAvailableSlots([]);
+      return;
+    }
+    const dateStr = format(selectedDate, "yyyy-MM-dd");
+    setLoadingSlots(true);
+    setAvailableSlots([]);
+    fetch(`${API_URL}/available-slots?date=${encodeURIComponent(dateStr)}`)
+      .then((res) => res.ok ? res.json() : Promise.reject(new Error("Failed to load slots")))
+      .then((data: { date: string; available: string[] }) => {
+        setAvailableSlots(data.available ?? []);
+      })
+      .catch(() => setAvailableSlots([]))
+      .finally(() => setLoadingSlots(false));
+  }, [selectedDate]);
+
+  // Clear selected time if it's no longer in the available list
+  useEffect(() => {
+    if (selectedTimeSlot && availableSlots.length > 0 && !availableSlots.includes(selectedTimeSlot)) {
+      setSelectedTimeSlot("");
+    }
+  }, [availableSlots, selectedTimeSlot]);
 
   const onSubmit = async (data: BookingFormData) => {
     // Validate all required fields
@@ -73,9 +96,8 @@ export function Contact() {
         console.warn("EmailJS credentials not configured");
       }
 
-      // Send data to backend for Google Sheets and Calendar
-      const apiUrl = (import.meta as any).env?.VITE_API_URL || "http://localhost:3001/api";
-      const backendResponse = await fetch(`${apiUrl}/book-meeting`, {
+      // Send the same date and time the user selected (logged to Sheets and Calendar)
+      const backendResponse = await fetch(`${API_URL}/book-meeting`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -332,29 +354,35 @@ export function Contact() {
                 )}
               </div>
 
-              {/* Time Slot Selection */}
+              {/* Time Slot Selection — only available (unbooked) slots are shown */}
               {selectedDate && (
                 <div className="flex flex-col gap-3 animate-fade-in">
                   <label className="font-['Roboto_Mono'] text-[#f0f4fd] text-sm md:text-base uppercase">
                     Select Time *
                   </label>
-                  <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
-                    {timeSlots.map((time) => (
-                      <button
-                        key={time}
-                        type="button"
-                        onClick={() => setSelectedTimeSlot(time)}
-                        className={`px-4 py-2.5 rounded-lg font-['Roboto_Mono'] text-sm md:text-base transition-all duration-300 ${
-                          selectedTimeSlot === time
-                            ? "bg-[#1b4bce] text-white border-2 border-[#1b4bce] scale-105"
-                            : "bg-[#0f0f0f] text-[#f0f4fd] border-2 border-[#1f1f1f] hover:border-[#1b4bce] hover:bg-[#1f1f1f]"
-                        }`}
-                      >
-                        {time}
-                      </button>
-                    ))}
-                  </div>
-                  {!selectedTimeSlot && (
+                  {loadingSlots ? (
+                    <p className="font-['Roboto_Flex'] text-[#b3b3b2] text-sm">Loading available times…</p>
+                  ) : availableSlots.length === 0 ? (
+                    <p className="font-['Roboto_Flex'] text-[#b3b3b2] text-sm">No available times for this date.</p>
+                  ) : (
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
+                      {availableSlots.map((time) => (
+                        <button
+                          key={time}
+                          type="button"
+                          onClick={() => setSelectedTimeSlot(time)}
+                          className={`px-4 py-2.5 rounded-lg font-['Roboto_Mono'] text-sm md:text-base transition-all duration-300 ${
+                            selectedTimeSlot === time
+                              ? "bg-[#1b4bce] text-white border-2 border-[#1b4bce] scale-105"
+                              : "bg-[#0f0f0f] text-[#f0f4fd] border-2 border-[#1f1f1f] hover:border-[#1b4bce] hover:bg-[#1f1f1f]"
+                          }`}
+                        >
+                          {time}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {!selectedTimeSlot && availableSlots.length > 0 && (
                     <p className="text-red-500 text-xs font-['Roboto_Flex']">Please select a time slot</p>
                   )}
                   {selectedTimeSlot && (

@@ -6,8 +6,9 @@ This backend handles Google Sheets and Google Calendar integration for the booki
 
 1. Install dependencies:
 ```bash
-npm install express googleapis dotenv cors
+npm install
 ```
+Or manually: `npm install express googleapis dotenv cors`
 
 2. Create a service account in Google Cloud Console:
    - Go to Google Cloud Console
@@ -18,17 +19,26 @@ npm install express googleapis dotenv cors
    - Share your Google Sheet with the service account email
    - Share your Google Calendar with the service account email
 
-3. Create `.env` file:
+3. Create `.env` from the example:
+```bash
+cp .env.example .env
 ```
-GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@project.iam.gserviceaccount.com
-GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
-GOOGLE_SHEET_ID=your_google_sheet_id
-GOOGLE_CALENDAR_ID=your_calendar_id
-PORT=3001
-```
+Then edit `.env` with your values (see `.env.example` for all keys).
 
 4. Run the server:
 ```bash
-node server.js
+npm start
 ```
+Or: `node server.js`
+
+## API Endpoints
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/health` | Health check; returns `googleConfigured` and timestamp. |
+| GET | `/api/available-slots?date=YYYY-MM-DD` | Returns `{ date, available }` — list of available time slot strings for that day. |
+| POST | `/api/book-meeting` | Book a meeting (body: name, companyName, email, phone, goal, requirement, date, timeSlot). Creates calendar event and appends row to Sheet. |
+
+- **Validation:** Email format, date not in past, time slot format (e.g. `10:00 AM`), and availability are checked before booking.
+- **Conflicts:** If the chosen slot is already taken, the API returns `409` with message "This time slot is no longer available".
 
