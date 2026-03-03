@@ -32,7 +32,49 @@ const carouselItems = [
     description: "Web Design Consultation.",
     nav: "https://drive.google.com/file/d/1ZNUioQ5H_JW__2b8GAIbLv86RWkvZSpw/view?usp=sharing",
   },
-];
+  {
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536112/apexbuilders_yxm3zl.png",
+    title: "Apex Builders",
+    description: "Real Estate Website Design & Development.",
+    nav: "https://apexbuilders.constructdev.in/",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536115/gifting_i6d6oq.png",
+    title: "Studio Gifting",
+    description: "B2B Corporate Gifting Website.",
+    nav: "https://studiogifting.constructdev.in/",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536129/elegancebags_ycnxnb.png",
+    title: "Elegance Bags",
+    description: "D2C E-commerce Website Development.",
+    nav: "https://elegancebags.constructdev.in/",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536134/paradise_wjppcg.png",
+    title: "The Paradise",
+    description: "Real Estate Website Design & Development.",
+    nav: "https://theparadise.constructdev.in/",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536140/drshettycosmetics_djt4cc.png",
+    title: "Dr. Shetty’s Cosmetology",
+    description: "Medical & Cosmetology Clinic Website.",
+    nav: "https://drshettyscosmetology.constructdev.in/",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1770107029/Screenshot_2026-02-03_135239_rivftk.png",
+    title: "Summuro AI",
+    description: "Saas Web Application.",
+    nav: "https://summuro-ai.vercel.app/",
+  },
+  ];
 
 export function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
