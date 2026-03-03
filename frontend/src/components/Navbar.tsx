@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export function Navbar() {
@@ -36,11 +36,13 @@ export function Navbar() {
   return (
     <nav className="fixed top-4 left-4 right-4 md:top-6 md:left-8 md:right-8 z-50">
       <div className="bg-[#1a1a1a] border border-[#1c1c21] rounded-xl md:rounded-2xl px-3 md:px-6 py-2 md:py-3 flex items-center justify-between">
-        <h1 className="font-['Zen_Dots'] text-white text-lg md:text-2xl uppercase">
-          C<span className="capitalize">onstruct</span>
-          <span className="capitalize text-[#1b4bce]">Dev</span>
-        </h1>
-        
+
+        <Link to="/">
+          <h1 className="font-['Zen_Dots'] text-white text-lg md:text-2xl uppercase">
+            C<span className="capitalize">onstruct</span>
+            <span className="capitalize text-[#1b4bce]">Dev</span>
+          </h1>
+        </Link>
         {/* Desktop Menu */}
         <div className="hidden lg:flex gap-1 items-center absolute left-1/2 -translate-x-1/2">
           <a 

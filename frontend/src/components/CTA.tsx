@@ -1,5 +1,6 @@
 import React from "react";
 import svgPaths from "../imports/svg-nrjcgr4q04";
+import { Link } from "react-router-dom";
 
 export function CTA() {
   return (
@@ -17,23 +18,25 @@ export function CTA() {
             </p>
           </div>
 
-          <button className="bg-[#0f0f0f] rounded-lg px-5 py-3 md:py-3.5 flex items-center gap-2 hover:bg-[#1a1a1a] transition-colors shrink-0">
-            <p className="font-['Roboto_Flex'] font-medium text-[#f3dfd8] text-xs md:text-sm uppercase">
-              Get in Touch
-            </p>
-            <svg
-              className="w-4 h-4 md:w-5 md:h-5"
-              fill="none"
-              viewBox="0 0 28 28"
-            >
-              <path
-                clipRule="evenodd"
-                d={svgPaths.p3261280}
-                fill="#1D4FD7"
-                fillRule="evenodd"
-              />
-            </svg>
-          </button>
+          <Link to="/contact">
+            <button className="bg-[#0f0f0f] rounded-lg px-5 py-3 md:py-3.5 flex items-center gap-2 hover:bg-[#1a1a1a] transition-colors shrink-0">
+              <p className="font-['Roboto_Flex'] font-medium text-[#f3dfd8] text-xs md:text-sm uppercase">
+                Get in Touch
+              </p>
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                viewBox="0 0 28 28"
+              >
+                <path
+                  clipRule="evenodd"
+                  d={svgPaths.p3261280}
+                  fill="#1D4FD7"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </button>
+          </Link>
         </div>
 
         {/* Social Media Scroll */}
