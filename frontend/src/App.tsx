@@ -10,6 +10,7 @@ import { Testimonials } from './components/Testimonials';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
+import { AllWorks } from './components/AllWorks';
 import { SEO } from './components/SEO';
 
 function HomePage() {
@@ -44,6 +45,19 @@ function ContactPage() {
   );
 }
 
+function AllWorksPage() {
+  return (
+    <>
+      <SEO 
+        title="All Works - Our Projects | ConstructDev"
+        description="Explore our portfolio of web design, development, branding, and AI integration projects. From SaaS applications to brand design and consultation."
+        url="/works"
+      />
+      <AllWorks />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
@@ -52,6 +66,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/works" element={<AllWorksPage />} />
         </Routes>
       </main>
       <Footer />
