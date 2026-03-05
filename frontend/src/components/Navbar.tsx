@@ -46,7 +46,7 @@ export function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex gap-1 items-center absolute left-1/2 -translate-x-1/2">
           <a 
-            href="#hero" 
+            href="/#hero" 
             className={`px-4 py-2 rounded-xl font-['Roboto_Mono'] font-medium text-sm uppercase transition-colors ${
               activeSection === 'hero' ? 'text-[#1d4fd7]' : 'text-[#81807e] hover:text-[#1d4fd7]'
             }`}
@@ -54,7 +54,7 @@ export function Navbar() {
             Home
           </a>
           <a 
-            href="#services" 
+            href="/#services" 
             className={`px-4 py-2 rounded-xl font-['Roboto_Mono'] font-medium text-sm uppercase transition-colors ${
               activeSection === 'services' ? 'text-[#1d4fd7]' : 'text-[#81807e] hover:text-[#1d4fd7]'
             }`}
@@ -62,7 +62,7 @@ export function Navbar() {
             Services
           </a>
           <a 
-            href="#works" 
+            href="/#works" 
             className={`px-4 py-2 rounded-xl font-['Roboto_Mono'] font-medium text-sm uppercase transition-colors ${
               activeSection === 'works' ? 'text-[#1d4fd7]' : 'text-[#81807e] hover:text-[#1d4fd7]'
             }`}
@@ -92,7 +92,7 @@ export function Navbar() {
       {isOpen && (
         <div className="lg:hidden mt-2 bg-[#1a1a1a] border border-[#1c1c21] rounded-xl p-4 flex flex-col gap-2">
           <a 
-            href="#hero" 
+            href="/#hero" 
             className={`px-5 py-3 rounded-xl font-['Roboto_Mono'] font-medium text-sm uppercase text-left transition-colors ${
               activeSection === 'hero' ? 'text-[#1d4fd7]' : 'text-[#81807e]'
             }`}
@@ -101,7 +101,7 @@ export function Navbar() {
             Home
           </a>
           <a 
-            href="#services" 
+            href="/#services" 
             className={`px-5 py-3 rounded-xl font-['Roboto_Mono'] font-medium text-sm uppercase text-left transition-colors ${
               activeSection === 'services' ? 'text-[#1d4fd7]' : 'text-[#81807e]'
             }`}
@@ -110,7 +110,7 @@ export function Navbar() {
             Services
           </a>
           <a 
-            href="#works" 
+            href="/#works" 
             className={`px-5 py-3 rounded-xl font-['Roboto_Mono'] font-medium text-sm uppercase text-left transition-colors ${
               activeSection === 'works' ? 'text-[#1d4fd7]' : 'text-[#81807e]'
             }`}

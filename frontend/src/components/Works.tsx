@@ -118,7 +118,7 @@ export function Works() {
               Our <span className="text-[#1b4bce]">Works</span>
             </h2>
 
-            <Link to="/works" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <Link to="/works" className="flex items-center gap-2 hover:opacity-80 border-2 border-gray-700 rounded-full py-2 px-4 hover:scale-105 transition-all duration-300">
               <div className="bg-[#0f0f0f] border border-[#262626] rounded-full p-3">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 28 28">
                   <path

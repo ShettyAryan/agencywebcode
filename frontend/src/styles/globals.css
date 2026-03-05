@@ -364,30 +364,51 @@ img {
   }
 }
 
-/* Testimonials infinite scroll animation */
-@keyframes testimonialsScroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
+/* Testimonials horizontal scroll - layout only (scroll handled in component) */
+.testimonials-scroll > div {
+  transform: scale(1);
+  transition: transform 0.2s ease;
 }
 
-.testimonials-scroll {
-  display: flex;
-  gap: 1.5rem;
-  animation: testimonialsScroll 40s linear infinite;
-  will-change: transform;
-  width: fit-content;
-}
-
-.testimonials-scroll:hover,
-.testimonials-scroll.group:hover {
-  animation-play-state: paused;
-}
-
-/* Individual card hover effect */
 .testimonials-scroll > div:hover {
   transform: scale(1.02);
+}
+
+/* Testimonials horizontal scrollbar - hidden, use dots instead */
+.testimonials-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonials-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Legacy testimonials scrollbar (kept if used elsewhere) - dark theme */
+.testimonials-scrollbar {
+  scrollbar-color: #1b4bce #1f1f1f;
+  scrollbar-width: thin;
+}
+
+.testimonials-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.testimonials-scrollbar::-webkit-scrollbar-track {
+  background: #1f1f1f;
+  border-radius: 4px;
+  margin: 0 1rem;
+}
+
+.testimonials-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #1b4bce 0%, #2563eb 100%);
+  border-radius: 4px;
+}
+
+.testimonials-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+}
+
+.testimonials-scrollbar::-webkit-scrollbar-thumb:active {
+  background: #1b4bce;
 }

@@ -1,6 +1,64 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 export function Testimonials() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeDot, setActiveDot] = useState(0);
+  const dotCount = 4; // one per testimonial
+
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    if (e.deltaY !== 0) {
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    }
+  };
+
+  // Update active dot from scroll position (within the first set, since content loops)
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const updateDot = () => {
+      const oneSetWidth = container.scrollWidth / 3;
+      const posInSet = container.scrollLeft % oneSetWidth;
+      const segment = oneSetWidth / dotCount;
+      const index = Math.min(dotCount - 1, Math.floor(posInSet / segment));
+      setActiveDot(index);
+    };
+    updateDot();
+    container.addEventListener("scroll", updateDot, { passive: true });
+    return () => container.removeEventListener("scroll", updateDot);
+  }, [dotCount]);
+
+  const scrollToDot = (index: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const oneSetWidth = container.scrollWidth / 3;
+    const segment = oneSetWidth / dotCount;
+    container.scrollTo({ left: index * segment, behavior: "smooth" });
+  };
+
+  // Auto-scroll: advance horizontally every frame; loop when we pass one set (we have 3 duplicated sets)
+  useEffect(() => {
+    const speed = 0.6;
+    let raf = 0;
+    const tick = () => {
+      const container = scrollRef.current;
+      if (!container) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      const oneSetWidth = container.scrollWidth / 3;
+      container.scrollLeft += speed;
+      if (container.scrollLeft >= oneSetWidth) {
+        container.scrollLeft -= oneSetWidth;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   const testimonials = [
     {
       name: "Saideepak Deshpande",
@@ -75,15 +133,33 @@ export function Testimonials() {
             </h2>
           </div>
 
-          {/* Infinite Scrolling Testimonials */}
+          {/* Scrollable Testimonials - dots indicate position, no scrollbar */}
           <div className="bg-[#1a1a1a] rounded-xl p-4 md:p-6 overflow-hidden">
-            <div className="testimonials-scroll group">
-              {/* First set */}
-              {testimonials.map((testimonial, index) => renderTestimonial(testimonial, index))}
-              {/* Duplicate set for seamless loop */}
-              {testimonials.map((testimonial, index) => renderTestimonial(testimonial, index + testimonials.length))}
-              {/* Third set for extra smoothness */}
-              {testimonials.map((testimonial, index) => renderTestimonial(testimonial, index + testimonials.length * 2))}
+            <div
+              ref={scrollRef}
+              onWheel={handleWheel}
+              className="testimonials-no-scrollbar overflow-x-auto overflow-y-hidden scroll-smooth py-2"
+            >
+              <div className="testimonials-scroll flex gap-4 md:gap-6 w-max">
+                {testimonials.map((testimonial, index) => renderTestimonial(testimonial, index))}
+                {testimonials.map((testimonial, index) => renderTestimonial(testimonial, index + testimonials.length))}
+                {testimonials.map((testimonial, index) => renderTestimonial(testimonial, index + testimonials.length * 2))}
+              </div>
+            </div>
+            {/* Dots indicator */}
+            <div className="flex justify-center gap-2 pt-3">
+              {Array.from({ length: dotCount }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => scrollToDot(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === activeDot
+                      ? "w-6 bg-[#1b4bce]"
+                      : "w-2 bg-[#333] hover:bg-[#444]"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
