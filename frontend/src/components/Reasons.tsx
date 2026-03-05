@@ -22,7 +22,7 @@ export function Reasons() {
   ];
 
   return (
-    <section className="pb-8 md:pb-12 px-4 md:px-8">
+    <section id="reasons" className="pb-8 md:pb-12 px-4 md:px-8">
       <div className="max-w-8xl mx-auto">
         <div className="border-2 border-[#1f1f1f] rounded-2xl p-3 md:p-4 flex flex-col gap-3 md:gap-4">
           {/* Header */}

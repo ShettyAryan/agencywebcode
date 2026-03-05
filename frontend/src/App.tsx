@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Stats } from './components/Stats';
@@ -12,6 +12,14 @@ import { Footer } from './components/Footer';
 import { Contact } from './components/Contact';
 import { AllWorks } from './components/AllWorks';
 import { SEO } from './components/SEO';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function HomePage() {
   return (
@@ -61,6 +69,7 @@ function AllWorksPage() {
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
+      <ScrollToTop />
       <Navbar />
       <main className="w-full overflow-x-hidden">
         <Routes>
