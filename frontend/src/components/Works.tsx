@@ -25,13 +25,14 @@ export const projects = [
     nav: "https://studiogifting.constructdev.in/",
   },
   {
-    title:"Bakerist Cafe",
+    title: "Nonna's Bakery",
     category: "Website Design and Developement",
-    filterCategory:"cafes-restaurants" as const,
-    icon: <CakeIcon className="text-[#0033FF] w-5 h-5"/>,
-    desc:"Crafted an aestheic landing page for a cafe that is high converting and focused on user experience to showcase the amazing products of the establishment",
-    image:"https://res.cloudinary.com/dsvgadc5d/image/upload/v1772787569/bakerist_oy6kvm.png",
-    nav:"https://bakerist.constructdev.in/"
+    filterCategory: "cafes-restaurants" as const,
+    icon: <CakeIcon className="text-[#0033FF] w-5 h-5" />,
+    desc: "Crafted a premium and aestheic landing page for a bakery that is high converting and focused on user experience, design and brand identity to showcase the amazing products of the establishment",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772817587/noonas_aupkfc.png",
+    nav: "https://nonnasbakery.constructdev.in/",
   },
   {
     title: "The Paradise",
@@ -52,6 +53,16 @@ export const projects = [
     image:
       "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536140/drshettycosmetics_djt4cc.png",
     nav: "https://drshettyscosmetology.constructdev.in/",
+  },
+  {
+    title: "Bakerist Cafe",
+    category: "Website Design and Developement",
+    filterCategory: "cafes-restaurants" as const,
+    icon: <CakeIcon className="text-[#0033FF] w-5 h-5" />,
+    desc: "Crafted an aestheic landing page for a cafe that is high converting and focused on user experience to showcase the amazing products of the establishment",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772787569/bakerist_oy6kvm.png",
+    nav: "https://bakerist.constructdev.in/",
   },
   {
     title: "Summuro AI",
