@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import svgPaths from "../imports/svg-nrjcgr4q04";
-import { Star, MapPin, Cookie, Stethoscope, BrainCircuit, Building2, ShoppingBag, Briefcase, UtensilsCrossed, CakeIcon } from "lucide-react";
+import { Star, MapPin, Cookie, Stethoscope, BrainCircuit, Building2, ShoppingBag, Briefcase, UtensilsCrossed, CakeIcon, HouseIcon } from "lucide-react";
 
 export const projects = [
   {
@@ -43,6 +43,16 @@ export const projects = [
     image:
       "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536134/paradise_wjppcg.png",
     nav: "https://theparadise.constructdev.in/",
+  },
+  {
+    title: "Quiet Quarters",
+    category: "Premium Architect Portfolio Website",
+    filterCategory: "real-estate" as const,
+    icon: <HouseIcon className="text-[#0033FF] w-5 h-5" />,
+    desc: "Designed and developed a professional, credibility-focused architect portfolio website aimed at increasing client trust and consultation bookings. The platform highlights expertise, quality of work, user-centric navigation, and strong trust signals to position the architect as a premium and reliable architect practice.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1773571904/quietquarters_brqffb.png",
+    nav: "https://quietquarters.constructdev.in/",
   },
   {
     title: "Dr. Shetty’s Cosmetology",
