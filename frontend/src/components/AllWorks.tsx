@@ -12,6 +12,7 @@ export const FILTER_CATEGORIES = [
   { slug: "d2c", label: "D2C" },
   { slug: "b2b", label: "B2B" },
   { slug: "saas", label: "SaaS" },
+  { slug: "finance", label: "Finance" },
 ] as const;
 
 export type FilterCategorySlug = (typeof FILTER_CATEGORIES)[number]["slug"];

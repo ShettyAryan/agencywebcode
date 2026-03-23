@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import svgPaths from "../imports/svg-nrjcgr4q04";
-import { Star, MapPin, Cookie, Stethoscope, BrainCircuit, Building2, ShoppingBag, Briefcase, UtensilsCrossed, CakeIcon, HouseIcon } from "lucide-react";
+import { Star, MapPin, Cookie, Stethoscope, BrainCircuit, Building2, ShoppingBag, Briefcase, UtensilsCrossed, CakeIcon, HouseIcon, DollarSign } from "lucide-react";
 
 export const projects = [
   {
@@ -43,6 +43,16 @@ export const projects = [
     image:
       "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536134/paradise_wjppcg.png",
     nav: "https://theparadise.constructdev.in/",
+  },
+  {
+    title: "Reddy & Co.",
+    category: " Website Design & Development",
+    filterCategory: "finance" as const,
+    icon: <DollarSign className="text-[#0033FF] w-5 h-5" />,
+    desc: "Crafted a minimalist and simple digital experience for a financial advisory platform. The website blends simple typography, refined spacing, and smooth interactions to reflect trust and simplicity.",
+    image:
+      "https://res.cloudinary.com/dzq2acoyj/image/upload/v1774257678/reddyco_vkcuji.png",
+    nav: "https://reddyco.constructdev.in/",
   },
   {
     title: "Quiet Quarters",
