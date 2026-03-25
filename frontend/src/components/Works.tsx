@@ -85,6 +85,16 @@ export const projects = [
     nav: "https://bakerist.constructdev.in/",
   },
   {
+    title: "Sharma Enterprise",
+    category: "CA Firm Multipage Website",
+    filterCategory: "finance" as const,
+    icon: <Briefcase className="text-[#0033FF] w-5 h-5" />,
+    desc: "Designed and developed a structured, professional multi-page website for a chartered accountant firm focused on building credibility and generating client enquiries. The platform highlights core financial services, establishes trust through clear communication and authority-driven content, and ensures seamless navigation to help potential clients understand offerings and take action with confidence.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1774456788/sharmaenterprise_babvrn.png",
+    nav: "https://sharmaenterprise.constructdev.in/",
+  },
+  {
     title: "Summuro AI",
     category: "Saas Web Application",
     filterCategory: "saas" as const,
