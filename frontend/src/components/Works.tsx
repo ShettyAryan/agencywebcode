@@ -55,6 +55,16 @@ export const projects = [
     nav: "https://reddyco.constructdev.in/",
   },
   {
+    title: "Followmind",
+    category: "SaaS Web Application",
+    filterCategory: "saas" as const,
+    icon: <BrainCircuit className="text-[#0033FF] w-5 h-5" />,
+    desc: "A SaaS web application designed to help users capture, organize, and engage with valuable online content more effectively. The platform streamlines content discovery and consumption through a structured, user-friendly interface, enabling users to save insights, revisit key ideas, and build a personalized knowledge system.",
+    image:
+      "https://res.cloudinary.com/dsvgadc5d/image/upload/v1774546962/followmind_mkjuia.png", 
+    nav: "https://followmind.construtdev.in",
+  },
+  {
     title: "Quiet Quarters",
     category: "Premium Architect Portfolio Website",
     filterCategory: "real-estate" as const,
