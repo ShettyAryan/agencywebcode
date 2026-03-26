@@ -62,7 +62,7 @@ export const projects = [
     desc: "A SaaS web application designed to help users capture, organize, and engage with valuable online content more effectively. The platform streamlines content discovery and consumption through a structured, user-friendly interface, enabling users to save insights, revisit key ideas, and build a personalized knowledge system.",
     image:
       "https://res.cloudinary.com/dsvgadc5d/image/upload/v1774546962/followmind_mkjuia.png", 
-    nav: "https://followmind.construtdev.in",
+    nav: "https://followmind.constructdev.in",
   },
   {
     title: "Quiet Quarters",
