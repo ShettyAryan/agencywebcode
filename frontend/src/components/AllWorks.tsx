@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export const FILTER_CATEGORIES = [
   { slug: "doctors", label: "Doctors" },
+  { slug: "ngo-nonprofits", label: "NGO / Non-profits" },
   { slug: "startups-agencies", label: "Startups / Agencies" },
   { slug: "cafes-restaurants", label: "Cafes & Restaurants" },
   { slug: "real-estate", label: "Real Estate" },

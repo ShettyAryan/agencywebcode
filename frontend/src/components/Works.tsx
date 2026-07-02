@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import svgPaths from "../imports/svg-nrjcgr4q04";
-import { Star, MapPin, Cookie, Stethoscope, BrainCircuit, Building2, ShoppingBag, Briefcase, UtensilsCrossed, CakeIcon, HouseIcon, DollarSign } from "lucide-react";
+import { Star, MapPin, Cookie, Stethoscope, BrainCircuit, Building2, ShoppingBag, Briefcase, UtensilsCrossed, CakeIcon, HouseIcon, DollarSign, Waves } from "lucide-react";
 
 export const projects = [
   {
@@ -164,6 +164,16 @@ export const projects = [
     image:
       "https://res.cloudinary.com/dsvgadc5d/image/upload/v1772536112/apexbuilders_yxm3zl.png",
     nav: "https://apexbuilders.constructdev.in/",
+  },
+  {
+    title: "Blue Horizon Initiative",
+    category: "NGO Website Design & Development",
+    filterCategory: "ngo-nonprofits" as const,
+    icon: <Waves className="text-[#0033FF] w-5 h-5" />,
+    desc: "Designed and developed a mission-driven website for a global ocean conservation coalition. The platform highlights marine protection impact, interactive world maps, conservation initiatives, and partner storytelling to build trust and drive engagement for planetary ocean restoration.",
+    image:
+      "https://image.thum.io/get/width/1200/crop/675/noanimate/https://bluehorizon-five.vercel.app/",
+    nav: "https://bluehorizon-five.vercel.app/",
   },
 ];
 
